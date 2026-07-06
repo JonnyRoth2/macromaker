@@ -1,17 +1,22 @@
 # MacroMaker
 
-A tiny Windows GUI tool to **hold several keys and mouse buttons at the same time**
-(e.g. hold `W` + left click) until you toggle it off.
+A tiny Windows GUI tool to **hold or auto-click several keys and mouse buttons at
+the same time** (e.g. hold `W` + left click) until you toggle it off.
 
 ## How to use
 1. Build `macromaker.exe` (see below) and run it.
 2. Tick the boxes for the keys/buttons you want — e.g. `W` and `Mouse L`.
-3. Press **F8** (a global hotkey — works even while your game window is focused),
-   or click **Start**. The selected inputs are held down.
-4. Press **F8** / **Stop** again to release everything.
+3. Pick a mode:
+   - **Hold** — the selected inputs are held down until you stop.
+   - **Click every _N_ ms, hold _M_ ms** — the selected inputs are pressed
+     together every *N* milliseconds, held down for *M* milliseconds, then
+     released (an auto-clicker). E.g. `1000` / `50` clicks once a second.
+4. Press **F8** (a global hotkey — works even while your game window is focused),
+   or click **Start**.
+5. Press **F8** / **Stop** again to stop and release everything.
 
 - **Re-press while held**: tick this if a game ignores a plain held key; it
-  re-sends the keydown ~30x/sec while holding.
+  re-sends the keydown ~30x/sec while holding (Hold mode only).
 - Closing the window always releases anything still held, so keys never get stuck.
 
 To change the available keys, edit the `g_items[]` table near the top of `main.cpp`.
